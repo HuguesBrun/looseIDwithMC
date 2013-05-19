@@ -79,7 +79,7 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         )
     ),
 
-    binnedFit = cms.bool(True),
+    binnedFit = cms.bool(False),
     binsForFit = cms.uint32(40),
 
     Efficiencies = cms.PSet(
@@ -154,7 +154,7 @@ if "tag35" in scenario:
 
 print "les fichiers que l'on va utiliser = ", process.TnP_MuonID.InputFileNames
 
-IDS = ["passORdiMu","passMu17Mu8","passMu17TkMu8"]
+IDS = ["passORdiMuNodZ","passMu17Mu8NoDz","passMu17TkMu8NoDz"]
 
 
 ALLBINS = [("ptEta",PT_ETA_BINS_TRIGGER)]
