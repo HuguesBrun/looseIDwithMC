@@ -79,7 +79,7 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         )
     ),
 
-    binnedFit = cms.bool(True),
+    binnedFit = cms.bool(False),
     binsForFit = cms.uint32(40),
 
     Efficiencies = cms.PSet(
@@ -97,7 +97,7 @@ if "mc" in scenario or "39X" in scenario or "38X" in scenario:
 PT_ETA_BINS_TRIGGER = cms.PSet(
                             pt   = cms.vdouble( 10, 20, 100),
                                #abseta = cms.vdouble(0,0.9,1.2,2.1,2.4),
-                            abseta = cms.vdouble(0,2.4),
+                               abseta = cms.vdouble(0,1.2,2.4),
                                #Tight2012 = cms.vstring("pass"),
                                # pair_probeMultiplicity = cms.vdouble(0.5,1.5),
                                #tag_Mu8 = cms.vstring("pass")
@@ -157,7 +157,7 @@ print "les fichiers que l'on va utiliser = ", process.TnP_MuonID.InputFileNames
 
 IDS = ["Mu8"]
 
-if "mc" in scenario: IDS = ["Mu17"]
+#if "mc" in scenario: IDS = ["Mu17"]
 
 ALLBINS = [("ptEta",PT_ETA_BINS_TRIGGER)]
 

@@ -13,18 +13,18 @@ drawMyPlot(TString nom, TString title){
 	
 	TCanvas *c0 = new TCanvas("c0","coucou",600,600);
 	c0->SetFillColor(0);
-    theHisto->SetTitle(title);
-	theHisto->GetXaxis()->SetTitle("#mu Tag p_{T} (GeV/c)");
-	theHisto->GetXaxis()->SetNoExponent();
+    theHisto->SetTitle("Mu17, "+title);
+	theHisto->GetXaxis()->SetTitle("#mu_{1} |#eta|");
+    theHisto->GetXaxis()->SetNoExponent();
 	theHisto->GetXaxis()->SetMoreLogLabels();
     theHisto->GetYaxis()->SetNoExponent();
 	theHisto->GetYaxis()->SetMoreLogLabels();
-	theHisto->GetYaxis()->SetTitle("#mu Probe p_{T} (GeV/c)");
-	theHisto->GetZaxis()->SetTitle("");
-	theHisto->GetZaxis()->SetLabelSize(0.01);
-	theHisto->SetAxisRange(0.,1.,"Z");
-	theHisto->SetMarkerSize(1.7);
+	theHisto->GetYaxis()->SetTitle("#mu_{2} |#eta|");
+	theHisto->GetZaxis()->SetLabelSize(0.02);
+	theHisto->SetAxisRange(0.5,1.,"Z");
+    theHisto->SetMarkerSize(1.7);
 	theHisto->SetMarkerColor(kRed-9);
+
 	theHisto->Draw("COLZTEXTE");
     
     /*TLatex t;
@@ -34,9 +34,9 @@ drawMyPlot(TString nom, TString title){
 	
 	c0->Print("effPlots/"+nom+".pdf");
 	
-	c0->SetLogy();
+	/*c0->SetLogy();
 	c0->SetLogx();
-    c0->Print("effPlots/"+nom+"_log.pdf");
+    c0->Print("effPlots/"+nom+"_log.pdf");*/
     
 	
 }
@@ -45,24 +45,32 @@ drawMyPlot(TString nom, TString title){
 
 drawThePlot(){
     gStyle->SetOptStat(0);
-    drawMyPlot("eff2D_all_passMu17Mu8_data","Mu17_Mu8 after Mu17, data all 2012");
-    drawMyPlot("eff2D_all_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data all 2012");
-    drawMyPlot("eff2D_all_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data all 2012");
-   
-    drawMyPlot("eff2D_runA_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run A");
-    drawMyPlot("eff2D_runA_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run A");
-    drawMyPlot("eff2D_runA_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run A");
+   /* drawMyPlot("eff2D_all_data","all 2012, data ");
+    drawMyPlot("eff2D_runA_data","run A, data ");
+    drawMyPlot("eff2D_runB_data","run B, data");
+    drawMyPlot("eff2D_runC_data","run C, data");
+    drawMyPlot("eff2D_runD_data","run D, data");
 
-    drawMyPlot("eff2D_runB_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run B");
-    drawMyPlot("eff2D_runB_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run B");
-    drawMyPlot("eff2D_runB_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run B");
+    drawMyPlot("eff2D_all_mc","all 2012, mc ");
+    drawMyPlot("eff2D_runA_mc","run A, mc ");
+    drawMyPlot("eff2D_runB_mc","run B, mc");
+    drawMyPlot("eff2D_runC_mc","run C, mc");
+    drawMyPlot("eff2D_runD_mc","run D, mc");*/
     
-    drawMyPlot("eff2D_runC_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run C");
-    drawMyPlot("eff2D_runC_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run C");
-    drawMyPlot("eff2D_runC_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run C");
+    TString runPeriod[5] = {"runA","runB","runC","runD","all"};
+    TString type[2] = {"data","mc"};
+    TString theTypeName[3] = {"passORdiMu","passMu17Mu8","passMu17TkMu8"};
+
+    for (int i = 0; i < 2 ; i++){
+        for (int j = 0 ; j<5 ; j++){
+            for (int k = 0 ; k<2 ; k++){
+                for (int m = 0 ; m < 3 ; m++){
+                drawMyPlot(Form("eff2D_ptbin%i_",k)+runPeriod[j]+"_"+theTypeName[m]+"_"+type[i],runPeriod[j]+", "+type[i]+", "+theTypeName[m]+Form(", P_{T}bin_%i",k));
+                }
+            }
+        }
+    }
     
-    drawMyPlot("eff2D_runD_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run D");
-    drawMyPlot("eff2D_runD_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run D");
-    drawMyPlot("eff2D_runD_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run D");
+    
 
 }

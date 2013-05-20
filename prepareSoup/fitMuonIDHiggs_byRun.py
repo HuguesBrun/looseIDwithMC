@@ -97,11 +97,10 @@ if "mc" in scenario or "39X" in scenario or "38X" in scenario:
 PT_ETA_BINS_TRIGGER = cms.PSet(
                                pt   = cms.vdouble(10, 20, 100),
                                tag_pt   = cms.vdouble(10, 20, 100),
-                               abseta = cms.vdouble(0,2.4),
-                               tag_abseta = cms.vdouble(0,2.4),
-                               #  abseta = cms.vdouble(0,1.,2.1,2.4),
-                               #tag_abseta = cms.vdouble(0,1,2.1,2.4),
-
+                               #abseta = cms.vdouble(0,2.4),
+                               #tag_abseta = cms.vdouble(0,2.4),
+                               abseta = cms.vdouble(0,1.2,2.4),
+                               tag_abseta = cms.vdouble(0,1.2,2.4),
 )
 
 
@@ -118,6 +117,8 @@ process.TnP_MuonID = Template.clone(
     OutputFileName = cms.string("TnP_MuonID_%s.root" % scenario),
     Efficiencies = cms.PSet(),
 )
+
+if "data" in scenario : process.TnP_MuonID.binnedFit = cms.bool(False)
 
 weightName="weight"
 if "mc" in scenario:
