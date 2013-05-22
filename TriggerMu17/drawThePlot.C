@@ -57,10 +57,10 @@ drawThePlot(){
     drawMyPlot("eff2D_runC_mc","run C, mc");
     drawMyPlot("eff2D_runD_mc","run D, mc");*/
     
-    TString runPeriod[5] = {"runA","runB","runC","runD","all"};
+    TString runPeriod[6] = {"runA","runB","runC","runD","all", "runABC"};
     TString type[2] = {"data","mc"};
     for (int i = 0; i < 2 ; i++){
-        for (int j = 0 ; j<5 ; j++){
+        for (int j = 0 ; j<6 ; j++){
             for (int k = 0 ; k<2 ; k++){
                 drawMyPlot(Form("eff2D_ptbin%i_",k)+runPeriod[j]+"_"+type[i],runPeriod[j]+", "+type[i]+Form(", P_{T}bin_%i",k));
             }

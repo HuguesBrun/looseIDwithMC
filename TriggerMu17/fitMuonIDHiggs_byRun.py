@@ -41,6 +41,7 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
                          weight_runB = cms.vstring("weight_runB", "0.0", "30.0", ""),
                          weight_runC = cms.vstring("weight_runC", "0.0", "30.0", ""),
                          weight_runD = cms.vstring("weight_runD", "0.0", "30.0", ""),
+                         weight_runABC = cms.vstring("weight_runABC", "0.0", "30.0", ""),
 
     ),
 
@@ -79,7 +80,7 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         )
     ),
 
-    binnedFit = cms.bool(False),
+    binnedFit = cms.bool(True),
     binsForFit = cms.uint32(40),
 
     Efficiencies = cms.PSet(
@@ -97,7 +98,7 @@ if "mc" in scenario or "39X" in scenario or "38X" in scenario:
 PT_ETA_BINS_TRIGGER = cms.PSet(
                             pt   = cms.vdouble( 10, 20, 100),
                                #abseta = cms.vdouble(0,0.9,1.2,2.1,2.4),
-                               abseta = cms.vdouble(0,1.2,2.4),
+                               abseta = cms.vdouble(0, 1, 2.1, 2.4),
                                #Tight2012 = cms.vstring("pass"),
                                # pair_probeMultiplicity = cms.vdouble(0.5,1.5),
                                #tag_Mu8 = cms.vstring("pass")
@@ -107,7 +108,7 @@ PT_ETA_BINS_TRIGGER = cms.PSet(
 
 
 #PREFIX="/data/gpetrucc/7TeV/tnp/2011.02.17/"
-PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithLoose/"
+PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithTight/"
 #PREFIX="root://eoscms//eos/cms/store/caf/user/gpetrucc/TnP/V4/"
 #PREFIX="file:/tmp/hbrun/"
 process.TnP_MuonID = Template.clone(
@@ -117,6 +118,8 @@ process.TnP_MuonID = Template.clone(
     OutputFileName = cms.string("TnP_MuonID_%s.root" % scenario),
     Efficiencies = cms.PSet(),
 )
+if "data" in scenario : process.TnP_MuonID.binnedFit = cms.bool(False)
+
 
 weightName="weight"
 if "mc" in scenario:
@@ -125,11 +128,13 @@ if "mc" in scenario:
     elif "runB" in scenario: process.TnP_MuonID.WeightVariable = cms.string("weight_runB")
     elif "runC" in scenario: process.TnP_MuonID.WeightVariable = cms.string("weight_runC")
     elif "runD" in scenario: process.TnP_MuonID.WeightVariable = cms.string("weight_runD")
+    elif "3first" in scenario: process.TnP_MuonID.WeightVariable = cms.string("weight_runABC")
 
     if "runA" in scenario: weightName="weight_runA"
     elif "runB" in scenario: weightName="weight_runB"
     elif "runC" in scenario: weightName="weight_runC"
     elif "runD" in scenario: weightName="weight_runD"
+    elif "3first" in scenario: weightName="weight_runABC"
 
 
 
@@ -145,6 +150,7 @@ if "data" in scenario:
         elif "runC" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012Cv1_24Aug2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv2.root"]
         elif "runD" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012D_upTo207898.root", PREFIX + "tnpZ_DoubleMu_run2012D_207899-208686.root"]
         elif "all" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012A_13Jul2012.root",PREFIX + "tnpZ_DoubleMu_run2012B_13Jul2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv1_24Aug2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv2.root", PREFIX + "tnpZ_DoubleMu_run2012D_upTo207898.root", PREFIX + "tnpZ_DoubleMu_run2012D_207899-208686.root"]
+        elif "3first" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012A_13Jul2012.root",PREFIX + "tnpZ_DoubleMu_run2012B_13Jul2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv1_24Aug2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv2.root"]
 
 if "mc" in scenario:
     process.TnP_MuonID.InputFileNames = [PREFIX + "tnpZ_MC53X_DYJets.root"]

@@ -59,6 +59,8 @@ void prepareForRefMC() {
     runCPU->Scale(1.0/runCPU->Integral());
     TH1F *runDPU = (TH1F*) myFile->Get("runD");
     runDPU->Scale(1.0/runDPU->Integral());
+    TH1F *runABCPU = (TH1F*) myFile->Get("runABC");
+    runABCPU->Scale(1.0/runABCPU->Integral());
     
     TH1F *dataPU = (TH1F*) myFile->Get("allData");
     dataPU->Scale(1.0/dataPU->Integral());
@@ -83,6 +85,11 @@ void prepareForRefMC() {
         double nMC = mcPU->GetBinContent(i), nData = runDPU->GetBinContent(i);
         weights_runD[i-1] = (nMC > 0 ? nData/nMC : 1.0);
     }
+    std::vector<double> weights_runABC(runABCPU->GetNbinsX()+1, 1.0);
+    for (int i = 1, n = weights_runABC.size(); i < n; ++i) {
+        double nMC = mcPU->GetBinContent(i), nData = runABCPU->GetBinContent(i);
+        weights_runABC[i-1] = (nMC > 0 ? nData/nMC : 1.0);
+    }
     std::vector<double> weights(dataPU->GetNbinsX()+1, 1.0);
     for (int i = 1, n = weights.size(); i < n; ++i) {
         double nMC = mcPU->GetBinContent(i), nData = dataPU->GetBinContent(i);
@@ -96,7 +103,7 @@ void prepareForRefMC() {
     //TFile *fOut = new TFile("/afs/cern.ch/work/h/hbrun/pogTnPr7/TnP_Data_"+NameFile+".root", "RECREATE");
     fOut->mkdir("tpTree")->cd();
     TTree *tOut = tIn->CloneTree(0);
-    Float_t tag_abseta, weight, weight_runA, weight_runB, weight_runC, weight_runD;
+    Float_t tag_abseta, weight, weight_runA, weight_runB, weight_runC, weight_runD, weight_runABC;
     Int_t passORdiMu, passORdiMuNodZ, passMu17Mu8, passMu17Mu8NoDz, passMu17TkMu8, passMu17TkMu8NoDz,passLoose;
     tOut->Branch("tag_abseta", &tag_abseta, "tag_abseta/F");
     tOut->Branch("weight", &weight, "weight/F");
@@ -104,6 +111,7 @@ void prepareForRefMC() {
     tOut->Branch("weight_runB", &weight_runB, "weight_runB/F");
     tOut->Branch("weight_runC", &weight_runC, "weight_runC/F");
     tOut->Branch("weight_runD", &weight_runD, "weight_runD/F");
+    tOut->Branch("weight_runABC", &weight_runABC, "weight_runABC/F");
 
     
   
@@ -124,9 +132,8 @@ void prepareForRefMC() {
         }
         passLoose = ((Glb||TM)&&PF);
         if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
-       // if (!(tag_Tight2012)) continue;
-        //if (!(Tight2012)) continue;
-        if (!((Glb||TM)&&PF)) continue;
+        if (!(tag_Tight2012)) continue;
+        if (!(Tight2012)) continue; //after tight ID
         if (!((tag_Mu17))) continue;
 
         weight = weights[int(tag_nVertices)];
@@ -134,6 +141,7 @@ void prepareForRefMC() {
         weight_runB = weights_runB[int(tag_nVertices)];
         weight_runC = weights_runC[int(tag_nVertices)];
         weight_runD = weights_runD[int(tag_nVertices)];
+        weight_runABC = weights_runABC[int(tag_nVertices)];
         // printf("on va sauver ! \n");
         tOut->Fill();
     }

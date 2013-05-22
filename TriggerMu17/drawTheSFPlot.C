@@ -64,8 +64,8 @@ drawTheSFPlot(){
     drawMyPlot("SF_runD_passMu17Mu8","Mu17_Mu8, run D");
     drawMyPlot("SF_runD_passMu17TkMu8","Mu17_TkMu8, run D");
     drawMyPlot("SF_runD_passORdiMu","Mu17_Mu8 OR Mu17_TkMu8, run D");*/
-    TString runPeriod[5] = {"runA","runB","runC","runD","all"};
-        for (int j = 0 ; j<5 ; j++){
+    TString runPeriod[6] = {"runA","runB","runC","runD","all", "runABC"};
+        for (int j = 0 ; j<6 ; j++){
             for (int k = 0 ; k<2 ; k++){
                 drawMyPlot(Form("SF_ptbin%i_",k)+runPeriod[j],runPeriod[j]+Form(", P_{T}bin_%i",k));
             }

@@ -77,10 +77,10 @@ void prepareForSoup() {
             printf("Done %9d/%9d   %5.1f%%   (elapsed %5.1f min, remaining %5.1f min)\n", i, n, i*evDenom, totalTime, remaining); 
             fflush(stdout);
         }
-        bool passLoose = ((Glb||TM)&&PF);
+        //bool passLoose = ((Glb||TM)&&PF);
         if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
-        //if (!(Tight2012&&tag_Tight2012)) continue;
-        if (!(passLoose)) continue;
+        if (!(Tight2012&&tag_Tight2012)) continue;
+        //if (!(passLoose)) continue;
         if (!((Mu8)||(tag_Mu8))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
         passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8));

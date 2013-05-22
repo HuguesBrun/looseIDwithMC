@@ -1,11 +1,11 @@
 TFile *myFileOut = new TFile("SFdataMC.root","RECREATE");
 
-TString runPeriod[5] = {"runA","runB","runC","runD","all"};
+TString runPeriod[6] = {"runA","runB","runC","runD","all", "runABC"};
 
 doFinalHistoSF(){
     TFile *theFile = new TFile("Mu17refPlot.root");
 
-    for (int k=0; k<5 ; k++){
+    for (int k=0; k<6 ; k++){
         for (int j = 0 ; j<2 ; j++){
             TH2F *thePlotData = (TH2F*) theFile->Get(Form("eff2D_ptbin%i_",j)+runPeriod[k]+"_data");
             TH2F *thePlotMC = (TH2F*) theFile->Get(Form("eff2D_ptbin%i_",j)+runPeriod[k]+"_mc");
