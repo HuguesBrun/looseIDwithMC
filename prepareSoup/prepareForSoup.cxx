@@ -10,13 +10,14 @@
 void prepareForSoup() {
 	using namespace std;
     TTree *tIn  = (TTree *) gFile->Get("tpTree/fitter_tree");
-    Float_t pt, abseta, pair_probeMultiplicity, tag_eta;
+    Float_t pt, abseta, pair_probeMultiplicity, tag_eta,mass;
     Int_t Glb, TM, PF;
 	Int_t Tight2012, tag_Tight2012, tag_Mu8, Mu8, DoubleMu17Mu8_Mu17leg,  DoubleMu17Mu8_Mu8leg, DoubleMu17Mu8_Mu17, DoubleMu17Mu8_Mu8, DoubleMu17TkMu8_Mu17, DoubleMu17TkMu8_TkMu8, DoubleMu17TkMu8_Mu17leg, DoubleMu17TkMu8_TkMu8leg;
     Int_t tag_DoubleMu17Mu8_Mu17leg,  tag_DoubleMu17Mu8_Mu8leg, tag_DoubleMu17Mu8_Mu17, tag_DoubleMu17Mu8_Mu8, tag_DoubleMu17TkMu8_Mu17, tag_DoubleMu17TkMu8_TkMu8, tag_DoubleMu17TkMu8_Mu17leg, tag_DoubleMu17TkMu8_TkMu8leg;
     tIn->SetBranchAddress("pt", &pt);
     tIn->SetBranchAddress("abseta", &abseta);
     tIn->SetBranchAddress("tag_eta", &tag_eta);
+    tIn->SetBranchAddress("mass", &mass);
     tIn->SetBranchAddress("pair_probeMultiplicity", &pair_probeMultiplicity);
     tIn->SetBranchAddress("Tight2012", &Tight2012);
     tIn->SetBranchAddress("tag_Tight2012", &tag_Tight2012);
@@ -77,9 +78,29 @@ void prepareForSoup() {
             printf("Done %9d/%9d   %5.1f%%   (elapsed %5.1f min, remaining %5.1f min)\n", i, n, i*evDenom, totalTime, remaining); 
             fflush(stdout);
         }
-        bool passLoose = ((Glb||TM)&&PF);
-        if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
+        if (pair_probeMultiplicity>1) {
+            //  printf("ref=%i, event=%i, multi=%f, diffToZ=%f\n",i,event,pair_probeMultiplicity,fabs(mass-91.2));
+            
+            int multi = (int) pair_probeMultiplicity;
+            int theBest = i;
+            float bestProvi = fabs(mass-91.2);
+            for (int j=i+1 ; j<(i+multi) ; j++){
+                tIn->GetEntry(j);
+                if (bestProvi>fabs(mass-91.2)) {
+                    //printf("on est dans le boucle, j-i=%i\n",j);
+                    bestProvi=fabs(mass-91.2);
+                    theBest = j;
+                }
+            }
+            tIn->GetEntry(theBest);
+            i=i+multi-1;
+            //  printf("save ref=%i, event=%i, multi=%f, diffToZ=%f\n",i,event,pair_probeMultiplicity,fabs(mass-91.2));
+            
+        }
+        //if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
         //if (!(Tight2012&&tag_Tight2012)) continue;
+        bool passLoose = ((Glb||TM)&&PF);
+
         if (!(passLoose)) continue;
         if (!((Mu8)||(tag_Mu8))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));

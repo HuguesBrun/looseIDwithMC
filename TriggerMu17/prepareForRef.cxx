@@ -11,14 +11,17 @@
 void prepareForRef() {
 	using namespace std;
     TTree *tIn  = (TTree *) gFile->Get("tpTree/fitter_tree");
-    Float_t pt, abseta, pair_probeMultiplicity, tag_eta, tag_nVertices;
-    Int_t Glb, TM, PF;
+    Float_t pt, abseta, pair_probeMultiplicity, tag_eta, tag_nVertices, mass;
+    Int_t Glb, TM, PF, event,pair_BestZ;
 	Int_t Tight2012, tag_Tight2012, tag_Mu8, Mu8, DoubleMu17Mu8_Mu17leg,  DoubleMu17Mu8_Mu8leg, DoubleMu17Mu8_Mu17, DoubleMu17Mu8_Mu8, DoubleMu17TkMu8_Mu17, DoubleMu17TkMu8_TkMu8, DoubleMu17TkMu8_Mu17leg, DoubleMu17TkMu8_TkMu8leg;
     Int_t tag_DoubleMu17Mu8_Mu17leg,  tag_DoubleMu17Mu8_Mu8leg, tag_DoubleMu17Mu8_Mu17, tag_DoubleMu17Mu8_Mu8, tag_DoubleMu17TkMu8_Mu17, tag_DoubleMu17TkMu8_TkMu8, tag_DoubleMu17TkMu8_Mu17leg, tag_DoubleMu17TkMu8_TkMu8leg;
     tIn->SetBranchAddress("pt", &pt);
     tIn->SetBranchAddress("abseta", &abseta);
     tIn->SetBranchAddress("tag_eta", &tag_eta);
+    tIn->SetBranchAddress("mass", &mass);
     tIn->SetBranchAddress("pair_probeMultiplicity", &pair_probeMultiplicity);
+    tIn->SetBranchAddress("pair_BestZ", &pair_BestZ);
+    tIn->SetBranchAddress("event", &event);
     tIn->SetBranchAddress("Tight2012", &Tight2012);
     tIn->SetBranchAddress("tag_Tight2012", &tag_Tight2012);
     tIn->SetBranchAddress("tag_Mu8", &tag_Mu8);
@@ -62,9 +65,9 @@ void prepareForRef() {
     int step = tIn->GetEntries()/1000;
     double evDenom = 100.0/double(tIn->GetEntries());
     TStopwatch timer; timer.Start();
-	
+	int theEvent = 0;
     for (int i = 0, n = tIn->GetEntries(); i < n; ++i) {
-	//for (int i = 0, n = 100; i < n; ++i) {
+	//for (int i = 0, n = 1000; i < n; ++i) {
         tIn->GetEntry(i);
         //if (i > 20000) break;
         if ((i+1) % step == 0) { 
@@ -73,13 +76,33 @@ void prepareForRef() {
             printf("Done %9d/%9d   %5.1f%%   (elapsed %5.1f min, remaining %5.1f min)\n", i, n, i*evDenom, totalTime, remaining); 
             fflush(stdout);
         }
+            if (pair_probeMultiplicity>1) {
+              //  printf("ref=%i, event=%i, multi=%f, diffToZ=%f\n",i,event,pair_probeMultiplicity,fabs(mass-91.2));
+
+                 int multi = (int) pair_probeMultiplicity;
+                 int theBest = i;
+                 float bestProvi = fabs(mass-91.2);
+                 for (int j=i+1 ; j<(i+multi) ; j++){
+                     tIn->GetEntry(j);
+                     if (bestProvi>fabs(mass-91.2)) {
+                         //printf("on est dans le boucle, j-i=%i\n",j);
+                         bestProvi=fabs(mass-91.2);
+                         theBest = j;
+                     }
+                 }
+                tIn->GetEntry(theBest);
+                i=i+multi-1;
+              //  printf("save ref=%i, event=%i, multi=%f, diffToZ=%f\n",i,event,pair_probeMultiplicity,fabs(mass-91.2));
+
+            }
+
         passLoose = ((Glb||TM)&&PF);
-        if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
+        //if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
         if (!(tag_Tight2012)) continue;
         if (!((Glb||TM)&&PF)) continue;
         if (!((tag_Mu8))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
-   /*     passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8));
+   /*    passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8));
         passMu17TkMu8 = ((DoubleMu17TkMu8_Mu17&&tag_DoubleMu17TkMu8_TkMu8)||(tag_DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
         passORdiMu = passMu17Mu8 || passMu17TkMu8;
         
