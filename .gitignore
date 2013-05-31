@@ -1,4 +1,4 @@
 *.root
 *.pdf
-.DS_Store
+.DS_*
 ./**/.DS_Store
