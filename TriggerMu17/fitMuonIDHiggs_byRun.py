@@ -79,14 +79,14 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         )
     ),
 
-    binnedFit = cms.bool(True),
+    binnedFit = cms.bool(False),
     binsForFit = cms.uint32(40),
 
     Efficiencies = cms.PSet(
     ), # will be filled later
 )
 
-
+if "mc" in scenario: Template.binnedFit = cms.bool(True)
 
 TRIGGER = cms.PSet(tag_Mu24 = cms.vstring("pass"))
 if "mc" in scenario or "39X" in scenario or "38X" in scenario:

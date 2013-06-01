@@ -86,6 +86,7 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     ), # will be filled later
 )
 
+if "mc" in scenario: Template.binnedFit=cms.bool(True)
 
 
 TRIGGER = cms.PSet(tag_Mu24 = cms.vstring("pass"))
