@@ -79,14 +79,14 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         )
     ),
 
-    binnedFit = cms.bool(True),
+    binnedFit = cms.bool(False),
     binsForFit = cms.uint32(40),
 
     Efficiencies = cms.PSet(
     ), # will be filled later
 )
 
-
+if "mc" in scenario: Template.binnedFit = cms.bool(True)
 
 TRIGGER = cms.PSet(tag_Mu24 = cms.vstring("pass"))
 if "mc" in scenario or "39X" in scenario or "38X" in scenario:
@@ -107,7 +107,7 @@ PT_ETA_BINS_TRIGGER = cms.PSet(
 
 
 #PREFIX="/data/gpetrucc/7TeV/tnp/2011.02.17/"
-PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithLoose/"
+PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithLooseBestZ/"
 #PREFIX="root://eoscms//eos/cms/store/caf/user/gpetrucc/TnP/V4/"
 #PREFIX="file:/tmp/hbrun/"
 process.TnP_MuonID = Template.clone(
@@ -157,7 +157,7 @@ print "les fichiers que l'on va utiliser = ", process.TnP_MuonID.InputFileNames
 
 IDS = ["Mu8"]
 
-if "mc" in scenario: IDS = ["Mu17"]
+#if "mc" in scenario: IDS = ["Mu17"]
 
 ALLBINS = [("ptEta",PT_ETA_BINS_TRIGGER)]
 

@@ -1,3 +1,5 @@
 *.root
 *.pdf
 */.DS_*
+.DS_*
+*.tar.gz
