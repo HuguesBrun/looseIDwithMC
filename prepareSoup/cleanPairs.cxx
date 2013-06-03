@@ -28,6 +28,8 @@ void cleanPairs(){
     TStopwatch timer; timer.Start();
 	float ptNow, tagPtNow;
     float ptNext, tagPtNext;
+    int nbOfDoublePair = 0:
+    int nbOfSinglePair = 0;
     for (int i = 0, n = tIn->GetEntries(); i < n; ++i) {
    // for (int i = 0, n = 100; i < n; ++i) {
         tIn->GetEntry(i);
@@ -48,9 +50,11 @@ void cleanPairs(){
         
         if ((ptNext==tagPtNow)&&(tagPtNext==ptNow)){
          //   printf("found a double pair ! \n");
+            tIn->GetEntry(i);
             i++;
+            nbOfDoublePair++;
         }
-        tIn->GetEntry(i);
+        else {tIn->GetEntry(i); nbOfSinglePair++}
         tOut->Fill();
 
         
@@ -58,6 +62,11 @@ void cleanPairs(){
         
     }
     
-    tOut->AutoSave(); // according to root tutorial this is the right thing to do
+    tOut->AutoSave();
+// according to root tutorial this is the right thing to do
     fOut->Close();
+    
+    float ratioDoubleSingle = 1.0*nbOfDoublePair/(nbOfSinglePair+nbOfDoublePair);
+    printf("ratio DoublePair = %f \n", ratioDoubleSingle;
 }
+
