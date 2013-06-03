@@ -104,8 +104,8 @@ void prepareForSoup() {
         if (!(passLoose)) continue;
         if (!((Mu8)||(tag_Mu8))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
-        passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8));
-        passMu17TkMu8 = ((DoubleMu17TkMu8_Mu17&&tag_DoubleMu17TkMu8_TkMu8)||(tag_DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
+        passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8leg)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8leg));
+        passMu17TkMu8 = ((DoubleMu17TkMu8_Mu17&&tag_DoubleMu17TkMu8_TkMu8leg)||(tag_DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8leg));
         passORdiMu = passMu17Mu8 || passMu17TkMu8;
         
         passMu17Mu8NoDz = ((DoubleMu17Mu8_Mu17leg&&tag_DoubleMu17Mu8_Mu8leg)||(tag_DoubleMu17Mu8_Mu17leg&&DoubleMu17Mu8_Mu8leg));
