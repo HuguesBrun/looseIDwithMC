@@ -48,7 +48,8 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
                           Tight2012 = cms.vstring("Tight2012","dummy[pass=1,fail=0]"),
                           Mu8 = cms.vstring("Mu8","dummy[pass=1,fail=0]"),
                           Mu17 = cms.vstring("Mu17","dummy[pass=1,fail=0]"),
-                          tag_Mu8 = cms.vstring("tag_Mu8","dummy[pass=1,fail=0]")
+                          tag_Mu8 = cms.vstring("tag_Mu8","dummy[pass=1,fail=0]"),
+                          DoubleMu17TkMu8_Mu17leg = cms.vstring("DoubleMu17TkMu8_Mu17leg","dummy[pass=1,fail=0]")
       
     ),
     PDFs = cms.PSet(
@@ -107,7 +108,7 @@ PT_ETA_BINS_TRIGGER = cms.PSet(
 
 
 #PREFIX="/data/gpetrucc/7TeV/tnp/2011.02.17/"
-PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithLooseBestZ/"
+PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithTightBias/"
 #PREFIX="root://eoscms//eos/cms/store/caf/user/gpetrucc/TnP/V4/"
 #PREFIX="file:/tmp/hbrun/"
 process.TnP_MuonID = Template.clone(
@@ -155,7 +156,7 @@ if "tag35" in scenario:
 
 print "les fichiers que l'on va utiliser = ", process.TnP_MuonID.InputFileNames
 
-IDS = ["Mu8"]
+IDS = ["DoubleMu17TkMu8_Mu17leg"]
 
 #if "mc" in scenario: IDS = ["Mu17"]
 

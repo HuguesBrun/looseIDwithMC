@@ -146,7 +146,7 @@ void prepareForRefMC() {
        // if (!(tag_Tight2012)) continue;
         //if (!(Tight2012)) continue;
         if (!((Glb||TM)&&PF)) continue;
-        if (!((tag_Mu8))) continue;
+        if (!((tag_DoubleMu17TkMu8_Mu17leg))) continue;
 
         weight = weights[int(tag_nVertices)];
         weight_runA = weights_runA[int(tag_nVertices)];

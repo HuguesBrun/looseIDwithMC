@@ -109,7 +109,7 @@ PT_ETA_BINS_TRIGGER = cms.PSet(
 
 
 #PREFIX="/data/gpetrucc/7TeV/tnp/2011.02.17/"
-PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7SoupWithLooseBestZOnePair/"
+PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7SoupWithLooseBestZOnePairBias/"
 #PREFIX="root://eoscms//eos/cms/store/caf/user/gpetrucc/TnP/V4/"
 #PREFIX="file:/tmp/hbrun/"
 process.TnP_MuonID = Template.clone(

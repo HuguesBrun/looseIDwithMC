@@ -7,8 +7,8 @@ doFinalHisto(){
     TFile *refFile = new TFile("Mu17refPlot.root");
     TFile *soupFile = new TFile("OrSoupPlot.root");
 
-    for (int n=0 ; n<2 ; n++){
-    for (int k=0; k<5 ; k++){
+    for (int n=1 ; n<2 ; n++){
+    for (int k=4; k<5 ; k++){
         TH2F *refPlot = (TH2F*) refFile->Get("eff2D_"+runPeriod[k]+"_"+theType[n]);
         for (int m=0 ; m<3 ; m++){
         TH2F *soupPlot = (TH2F*) soupFile->Get("eff2D_"+runPeriod[k]+"_"+theTypeName[m]+"_"+theType[n]);
