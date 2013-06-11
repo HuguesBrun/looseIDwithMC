@@ -26,7 +26,7 @@ doFinalHisto(){
                 //cout << "soup=" << soupPlot->GetBinContent(i+1, j+1) << endl;
                 float theValue = refPlot->GetBinContent(i+1, j+1)*soupPlot->GetBinContent(i+1, j+1);
                 // cout << "theValue=" << theValue << endl;
-                float theError = sqrt(refPlot->GetBinError(i+1, j+1)*refPlot->GetBinError(i+1, j+1)+soupPlot->GetBinError(i+1, j+1)*soupPlot->GetBinError(i+1, j+1));
+                float theError = sqrt(refPlot->GetBinError(i+1, j+1)*refPlot->GetBinError(i+1, j+1)/(refPlot->GetBinContent(i+1, j+1)*refPlot->GetBinContent(i+1, j+1))+soupPlot->GetBinError(i+1, j+1)*soupPlot->GetBinError(i+1, j+1)/(soupPlot->GetBinContent(i+1, j+1)*soupPlot->GetBinContent(i+1, j+1)));
                 finalPlot->SetBinContent(i+1, j+1, theValue);
                 finalPlot->SetBinError(i+1, j+1, theError);
             }

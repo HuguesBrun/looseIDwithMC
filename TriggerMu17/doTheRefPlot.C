@@ -47,15 +47,16 @@ doTheRefPlot(){
             double x2,y2;
             double theError, theError2, theErrorTot;
             for (int i=0 ; i<points; i++){
-                theEffPlot1->GetPoint(i, x, y);
-                theError = theEffPlot1->GetErrorY(i);
+                theEffPlot->GetPoint(i, x, y);
+                theError = theEffPlot->GetErrorY(i)/y;
                 for (int j=0 ; j<points ; j++){
-                    theEffPlot1->GetPoint(j, x2, y2);
-                    theError2 = theEffPlot1->GetErrorY(j);
+                    theEffPlot->GetPoint(j, x2, y2);
+                    theError2 = theEffPlot->GetErrorY(j)/y;
                     cout << "i=" << i << ", x=" << x << ", y=" << y << endl;
                     cout << "j=" << j << ", x=" << x2 << ", y=" << y2 << endl;
                     double theRealEff = (double) 1.0-(1.-y2)*(1.-y);
-                    theErrorTot = sqrt(theError*theError+theError2*theError2);
+                    theErrorTot = theRealEff*sqrt(theError*theError+theError2*theError2);
+                    if (i==j) theErrorTot=2*theError;
                     eff2D->SetBinContent(i+1,j+1,theRealEff);
                     eff2D->SetBinError(i+1,j+1,theErrorTot);
                 }

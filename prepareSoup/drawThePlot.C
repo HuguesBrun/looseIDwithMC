@@ -45,17 +45,7 @@ drawMyPlot(TString nom, TString title){
 
 drawThePlot(){
     gStyle->SetOptStat(0);
-   /* drawMyPlot("eff2D_all_data","all 2012, data ");
-    drawMyPlot("eff2D_runA_data","run A, data ");
-    drawMyPlot("eff2D_runB_data","run B, data");
-    drawMyPlot("eff2D_runC_data","run C, data");
-    drawMyPlot("eff2D_runD_data","run D, data");
 
-    drawMyPlot("eff2D_all_mc","all 2012, mc ");
-    drawMyPlot("eff2D_runA_mc","run A, mc ");
-    drawMyPlot("eff2D_runB_mc","run B, mc");
-    drawMyPlot("eff2D_runC_mc","run C, mc");
-    drawMyPlot("eff2D_runD_mc","run D, mc");*/
     
     TString runPeriod[5] = {"runA","runB","runC","runD","all"};
     TString type[2] = {"data","mc"};
@@ -71,6 +61,6 @@ drawThePlot(){
         }
     }
     
-    
 
+  
 }

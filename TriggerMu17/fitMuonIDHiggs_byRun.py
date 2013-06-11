@@ -86,7 +86,7 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     ), # will be filled later
 )
 
-
+if "mc" in scenario: Template.binnedFit = cms.bool(True)
 
 TRIGGER = cms.PSet(tag_Mu24 = cms.vstring("pass"))
 if "mc" in scenario or "39X" in scenario or "38X" in scenario:
@@ -107,7 +107,7 @@ PT_ETA_BINS_TRIGGER = cms.PSet(
 
 
 #PREFIX="/data/gpetrucc/7TeV/tnp/2011.02.17/"
-PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithLoose/"
+PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7RefWithLooseBestZ/"
 #PREFIX="root://eoscms//eos/cms/store/caf/user/gpetrucc/TnP/V4/"
 #PREFIX="file:/tmp/hbrun/"
 process.TnP_MuonID = Template.clone(
