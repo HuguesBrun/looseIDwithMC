@@ -148,7 +148,7 @@ void prepareForSoupMC() {
         //if (!(Tight2012)) continue;
         bool passLoose = ((Glb||TM)&&PF);
         if (!(passLoose)) continue;
-        if (!((DoubleMu17TkMu8_Mu17leg)||(tag_DoubleMu17TkMu8_Mu17leg))) continue;
+   //     if (!((DoubleMu17TkMu8_Mu17leg)||(tag_DoubleMu17TkMu8_Mu17leg))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
         passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8leg)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8leg));
         passMu17TkMu8 = ((DoubleMu17TkMu8_Mu17&&tag_DoubleMu17TkMu8_TkMu8leg)||(tag_DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8leg));
