@@ -28,6 +28,7 @@ void cleanPairs(){
     TStopwatch timer; timer.Start();
 	float ptNow, tagPtNow;
     float ptNext, tagPtNext;
+    TRandom *rando = new TRandom();
     for (int i = 0, n = tIn->GetEntries(); i < n; ++i) {
    // for (int i = 0, n = 100; i < n; ++i) {
         tIn->GetEntry(i);
@@ -48,9 +49,11 @@ void cleanPairs(){
         
         if ((ptNext==tagPtNow)&&(tagPtNext==ptNow)){
          //   printf("found a double pair ! \n");
+            float theRand = rando->Uniform(0,2);
+            if (theRand>=1) tIn->GetEntry(i); else tIn->GetEntry(i+1);
             i++;
         }
-        tIn->GetEntry(i);
+        else tIn->GetEntry(i);
         tOut->Fill();
 
         
