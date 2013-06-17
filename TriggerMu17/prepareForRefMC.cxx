@@ -143,10 +143,10 @@ void prepareForRefMC() {
         passLoose = ((Glb||TM)&&PF);
 
         //if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
-       // if (!(tag_Tight2012)) continue;
+        if (!(tag_Tight2012)) continue;
         //if (!(Tight2012)) continue;
         if (!((Glb||TM)&&PF)) continue;
-        if (!((tag_DoubleMu17TkMu8_Mu17leg))) continue;
+       // if (!((tag_DoubleMu17TkMu8_Mu17leg))) continue;
 
         weight = weights[int(tag_nVertices)];
         weight_runA = weights_runA[int(tag_nVertices)];
