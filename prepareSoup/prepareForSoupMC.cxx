@@ -116,7 +116,7 @@ void prepareForSoupMC() {
     TStopwatch timer; timer.Start();
 	
     //for (int i = 0, n = tIn->GetEntries(); i < n; ++i) {
-	for (int i = 0, n = tIn->GetEntries(); i < n; ++i) {
+	for (int i = 0, n = 500000; i < n; ++i) {
         tIn->GetEntry(i);
         //if (i > 20000) break;
         if ((i+1) % step == 0) { 

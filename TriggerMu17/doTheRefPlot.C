@@ -11,7 +11,7 @@ doTheRefPlot(){
     for (int m=0 ; m<2 ; m++){
         for (int k=0 ; k<5 ; k++){
             TFile *myInFile = new TFile("theEfficiencyPlots_"+type[m]+"_"+runPeriod[k]+".root");
-            TGraphAsymmErrors *theEffPlot = (TGraphAsymmErrors*) myInFile->Get("Mu8_ptEta_pt_PLOT");
+            TGraphAsymmErrors *theEffPlot = (TGraphAsymmErrors*) myInFile->Get("Mu17_ptEta_pt_PLOT");
            // if (m==1) theEffPlot = (TGraphAsymmErrors*) myInFile->Get("Mu17_ptEta_pt_PLOT");
 
             TH2F *eff2D = new TH2F("eff2D_"+runPeriod[k]+"_"+type[m],"",2,ptBins,2,ptBins);

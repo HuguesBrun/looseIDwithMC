@@ -109,8 +109,8 @@ PT_ETA_BINS_TRIGGER = cms.PSet(
 
 
 #PREFIX="/data/gpetrucc/7TeV/tnp/2011.02.17/"
-#PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7SoupWithLooseBestZOnePair/"
-PREFIX="file:/tmp/hbrun/"
+
+PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr8SoupWithTight/"
 #PREFIX="root://eoscms//eos/cms/store/caf/user/gpetrucc/TnP/V4/"
 #PREFIX="file:/tmp/hbrun/"
 process.TnP_MuonID = Template.clone(
@@ -141,11 +141,11 @@ if "data" in scenario:
     # elif "huguesTest" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "TnP_Data_runA.root",PREFIX + "TnP_Data_runB.root",PREFIX + "TnP_Data_runCv1.root",PREFIX + "TnP_Data_runCv2_forTrigger.root",PREFIX + "TnP_Data_runDp1.root",PREFIX + "TnP_Data_runDp2.root"]
     # elif "huguesTest" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "TnP_Data_runDp1_dipho.root",PREFIX + "TnP_Data_runDp2_dipho.root"]
     elif "huguesTest" in scenario:
-        if "runA" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012A_13Jul2012.root"]
-        elif "runB" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012B_13Jul2012.root"]
-        elif "runC" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012Cv1_24Aug2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv2.root"]
-        elif "runD" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012D_upTo207898.root", PREFIX + "tnpZ_DoubleMu_run2012D_207899-208686.root"]
-        elif "all" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_run2012A_13Jul2012.root",PREFIX + "tnpZ_DoubleMu_run2012B_13Jul2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv1_24Aug2012.root", PREFIX + "tnpZ_DoubleMu_run2012Cv2.root", PREFIX + "tnpZ_DoubleMu_run2012D_upTo207898.root", PREFIX + "tnpZ_DoubleMu_run2012D_207899-208686.root"]
+        if "runA" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_Run2012A.root"]
+        elif "runB" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_Run2012B.root"]
+        elif "runC" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_Run2012C.root"]
+        elif "runD" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_Run2012D.root"]
+        elif "all" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_Run2012A.root",PREFIX + "tnpZ_DoubleMu_Run2012B.root", PREFIX + "tnpZ_DoubleMu_Run2012C.root", PREFIX + "tnpZ_DoubleMu_Run2012D.root"]
 
 if "mc" in scenario:
     process.TnP_MuonID.InputFileNames = [PREFIX + "tnpZ_theTreeCleaned.root"]

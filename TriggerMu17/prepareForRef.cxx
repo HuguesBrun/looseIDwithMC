@@ -13,7 +13,7 @@ void prepareForRef() {
     TTree *tIn  = (TTree *) gFile->Get("tpTree/fitter_tree");
     Float_t pt, abseta, pair_probeMultiplicity, tag_eta, tag_nVertices, mass;
     Int_t Glb, TM, PF, event,pair_BestZ;
-	Int_t Tight2012, tag_Tight2012, tag_Mu8, Mu8, DoubleMu17Mu8_Mu17leg,  DoubleMu17Mu8_Mu8leg, DoubleMu17Mu8_Mu17, DoubleMu17Mu8_Mu8, DoubleMu17TkMu8_Mu17, DoubleMu17TkMu8_TkMu8, DoubleMu17TkMu8_Mu17leg, DoubleMu17TkMu8_TkMu8leg;
+	Int_t Tight2012, tag_Tight2012, tag_Mu17, Mu8, DoubleMu17Mu8_Mu17leg,  DoubleMu17Mu8_Mu8leg, DoubleMu17Mu8_Mu17, DoubleMu17Mu8_Mu8, DoubleMu17TkMu8_Mu17, DoubleMu17TkMu8_TkMu8, DoubleMu17TkMu8_Mu17leg, DoubleMu17TkMu8_TkMu8leg;
     Int_t tag_DoubleMu17Mu8_Mu17leg,  tag_DoubleMu17Mu8_Mu8leg, tag_DoubleMu17Mu8_Mu17, tag_DoubleMu17Mu8_Mu8, tag_DoubleMu17TkMu8_Mu17, tag_DoubleMu17TkMu8_TkMu8, tag_DoubleMu17TkMu8_Mu17leg, tag_DoubleMu17TkMu8_TkMu8leg;
     tIn->SetBranchAddress("pt", &pt);
     tIn->SetBranchAddress("abseta", &abseta);
@@ -24,7 +24,7 @@ void prepareForRef() {
     tIn->SetBranchAddress("event", &event);
     tIn->SetBranchAddress("Tight2012", &Tight2012);
     tIn->SetBranchAddress("tag_Tight2012", &tag_Tight2012);
-    tIn->SetBranchAddress("tag_Mu8", &tag_Mu8);
+    tIn->SetBranchAddress("tag_Mu17", &tag_Mu17);
     tIn->SetBranchAddress("Mu8", &Mu8);
     tIn->SetBranchAddress("Glb", &Glb);
     tIn->SetBranchAddress("TM", &TM);
@@ -41,9 +41,9 @@ void prepareForRef() {
     tIn->SetBranchAddress("tag_DoubleMu17Mu8_Mu17leg", &tag_DoubleMu17Mu8_Mu17leg);
     tIn->SetBranchAddress("tag_DoubleMu17Mu8_Mu17", &tag_DoubleMu17Mu8_Mu17);
     tIn->SetBranchAddress("tag_DoubleMu17Mu8_Mu8leg", &tag_DoubleMu17Mu8_Mu8leg);
-    tIn->SetBranchAddress("tag_DoubleMu17Mu8_Mu8", &tag_DoubleMu17Mu8_Mu8);
+ //   tIn->SetBranchAddress("tag_DoubleMu17Mu8_Mu8", &tag_DoubleMu17Mu8_Mu8);
     tIn->SetBranchAddress("tag_DoubleMu17TkMu8_Mu17", &tag_DoubleMu17TkMu8_Mu17);
-    tIn->SetBranchAddress("tag_DoubleMu17TkMu8_TkMu8", &tag_DoubleMu17TkMu8_TkMu8);
+  //  tIn->SetBranchAddress("tag_DoubleMu17TkMu8_TkMu8", &tag_DoubleMu17TkMu8_TkMu8);
     tIn->SetBranchAddress("tag_DoubleMu17TkMu8_Mu17leg", &tag_DoubleMu17TkMu8_Mu17leg);
     tIn->SetBranchAddress("tag_DoubleMu17TkMu8_TkMu8leg", &tag_DoubleMu17TkMu8_TkMu8leg);
 	
@@ -100,7 +100,7 @@ void prepareForRef() {
         //if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
         if (!(tag_Tight2012)) continue;
         if (!((Glb||TM)&&PF)) continue;
-        if (!((tag_Mu8))) continue;
+        if (!((tag_Mu17))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
    /*    passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8));
         passMu17TkMu8 = ((DoubleMu17TkMu8_Mu17&&tag_DoubleMu17TkMu8_TkMu8)||(tag_DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
