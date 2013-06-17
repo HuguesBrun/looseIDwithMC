@@ -110,7 +110,7 @@ PT_ETA_BINS_TRIGGER = cms.PSet(
 
 #PREFIX="/data/gpetrucc/7TeV/tnp/2011.02.17/"
 
-PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr8SoupWithTight/"
+PREFIX="file:/afs/cern.ch/work/h/hbrun/pogTnPr7SoupWithLooseBestZOnePairBias/"
 #PREFIX="root://eoscms//eos/cms/store/caf/user/gpetrucc/TnP/V4/"
 #PREFIX="file:/tmp/hbrun/"
 process.TnP_MuonID = Template.clone(
@@ -148,9 +148,7 @@ if "data" in scenario:
         elif "all" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "tnpZ_DoubleMu_Run2012A.root",PREFIX + "tnpZ_DoubleMu_Run2012B.root", PREFIX + "tnpZ_DoubleMu_Run2012C.root", PREFIX + "tnpZ_DoubleMu_Run2012D.root"]
 
 if "mc" in scenario:
-    process.TnP_MuonID.InputFileNames = [PREFIX + "tnpZ_theTreeCleaned.root"]
-#    process.TnP_MuonID.InputFileNames = [PREFIX + "tnpZ_MC53X_DYJets.root"]
-#TnP_DY.root"]
+    process.TnP_MuonID.InputFileNames = [PREFIX + "tnpZ_MC53X_DYJets.root"]
 
 if "tag35" in scenario:
     process.TnP_MuonID.Variables.tag_pt[1]='35'
