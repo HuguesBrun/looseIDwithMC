@@ -40,7 +40,7 @@ recupTheNumbers(){
     delete myFile;
     
     TFile *myFile = new TFile("combination/FinalEfficiencies.root");
-    for (int j=0 ; j < 2 ; j++){
+    for (int j=0 ; j < 3 ; j++){
         for (int i = 0 ; i < 5 ; i++){
             // cout << "eff2D_"+theRuns[i]+"_"+nomTrigger[j]+"_data" << endl;
             TH2F *data = (TH2F*) myFile->Get("effTrigger_"+theRuns[i]+"_"+nomTrigger[j]+"_data");
