@@ -45,25 +45,25 @@ drawMyPlot(TString nom, TString title){
 
 drawTheSFPlot(){
     gStyle->SetOptStat(0);
-    drawMyPlot("SF_all_passMu17Mu8","DATA/MC, Mu17_Mu8, all 2012");
-    drawMyPlot("SF_all_passMu17TkMu8","DATA/MC, Mu17_TkMu8, all 2012");
-    drawMyPlot("SF_all_passORdiMu","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, all 201");
+    drawMyPlot("SF_all_passMu17Mu8NoDz","DATA/MC, Mu17_Mu8, all 2012");
+    drawMyPlot("SF_all_passMu17TkMu8NoDz","DATA/MC, Mu17_TkMu8, all 2012");
+    drawMyPlot("SF_all_passORdiMuNodZ","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, all 201");
    
-    drawMyPlot("SF_runA_passMu17Mu8","DATA/MC, Mu17_Mu8, run A");
-    drawMyPlot("SF_runA_passMu17TkMu8","DATA/MC, Mu17_TkMu8, run A");
-    drawMyPlot("SF_runA_passORdiMu","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run A");
+    drawMyPlot("SF_runA_passMu17Mu8NoDz","DATA/MC, Mu17_Mu8, run A");
+    drawMyPlot("SF_runA_passMu17TkMu8NoDz","DATA/MC, Mu17_TkMu8, run A");
+    drawMyPlot("SF_runA_passORdiMuNodZ","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run A");
     
-    drawMyPlot("SF_runB_passMu17Mu8","DATA/MC, Mu17_Mu8, run B");
-    drawMyPlot("SF_runB_passMu17TkMu8","DATA/MC, Mu17_TkMu8, run B");
-    drawMyPlot("SF_runB_passORdiMu","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run B");
+    drawMyPlot("SF_runB_passMu17Mu8NoDz","DATA/MC, Mu17_Mu8, run B");
+    drawMyPlot("SF_runB_passMu17TkMu8NoDz","DATA/MC, Mu17_TkMu8, run B");
+    drawMyPlot("SF_runB_passORdiMuNodZ","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run B");
     
-    drawMyPlot("SF_runC_passMu17Mu8","DATA/MC, Mu17_Mu8, run C");
-    drawMyPlot("SF_runC_passMu17TkMu8","DATA/MC, Mu17_TkMu8, run C");
-    drawMyPlot("SF_runC_passORdiMu","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run C");
+    drawMyPlot("SF_runC_passMu17Mu8NoDz","DATA/MC, Mu17_Mu8, run C");
+    drawMyPlot("SF_runC_passMu17TkMu8NoDz","DATA/MC, Mu17_TkMu8, run C");
+    drawMyPlot("SF_runC_passORdiMuNodZ","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run C");
     
-    drawMyPlot("SF_runD_passMu17Mu8","DATA/MC, Mu17_Mu8, run D");
-    drawMyPlot("SF_runD_passMu17TkMu8","DATA/MC, Mu17_TkMu8, run D");
-    drawMyPlot("SF_runD_passORdiMu","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run D");
+    drawMyPlot("SF_runD_passMu17Mu8NoDz","DATA/MC, Mu17_Mu8, run D");
+    drawMyPlot("SF_runD_passMu17TkMu8NoDz","DATA/MC, Mu17_TkMu8, run D");
+    drawMyPlot("SF_runD_passORdiMuNodZ","DATA/MC, Mu17_Mu8 OR Mu17_TkMu8, run D");
 
     
   

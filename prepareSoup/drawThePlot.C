@@ -45,43 +45,43 @@ drawMyPlot(TString nom, TString title){
 
 drawThePlot(){
     gStyle->SetOptStat(0);
-    drawMyPlot("eff2D_all_passMu17Mu8_data","Mu17_Mu8 after Mu17, data all 2012");
-    drawMyPlot("eff2D_all_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data all 2012");
-    drawMyPlot("eff2D_all_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data all 2012");
+    drawMyPlot("eff2D_all_passMu17Mu8NoDz_data","Mu17_Mu8 after Mu17, data all 2012");
+    drawMyPlot("eff2D_all_passMu17TkMu8NoDz_data","Mu17_TkMu8 after Mu17, data all 2012");
+    drawMyPlot("eff2D_all_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data all 2012");
    
-    drawMyPlot("eff2D_runA_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run A");
-    drawMyPlot("eff2D_runA_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run A");
-    drawMyPlot("eff2D_runA_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run A");
+    drawMyPlot("eff2D_runA_passMu17Mu8NoDz_data","Mu17_Mu8 after Mu17, data run A");
+    drawMyPlot("eff2D_runA_passMu17TkMu8NoDz_data","Mu17_TkMu8 after Mu17, data run A");
+    drawMyPlot("eff2D_runA_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run A");
 
-    drawMyPlot("eff2D_runB_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run B");
-    drawMyPlot("eff2D_runB_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run B");
-    drawMyPlot("eff2D_runB_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run B");
+    drawMyPlot("eff2D_runB_passMu17Mu8NoDz_data","Mu17_Mu8 after Mu17, data run B");
+    drawMyPlot("eff2D_runB_passMu17TkMu8NoDz_data","Mu17_TkMu8 after Mu17, data run B");
+    drawMyPlot("eff2D_runB_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run B");
     
-    drawMyPlot("eff2D_runC_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run C");
-    drawMyPlot("eff2D_runC_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run C");
-    drawMyPlot("eff2D_runC_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run C");
+    drawMyPlot("eff2D_runC_passMu17Mu8NoDz_data","Mu17_Mu8 after Mu17, data run C");
+    drawMyPlot("eff2D_runC_passMu17TkMu8NoDz_data","Mu17_TkMu8 after Mu17, data run C");
+    drawMyPlot("eff2D_runC_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run C");
     
-    drawMyPlot("eff2D_runD_passMu17Mu8_data","Mu17_Mu8 after Mu17, data run D");
-    drawMyPlot("eff2D_runD_passMu17TkMu8_data","Mu17_TkMu8 after Mu17, data run D");
-    drawMyPlot("eff2D_runD_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run D");
-    drawMyPlot("eff2D_all_passMu17Mu8_mc","Mu17_Mu8 after Mu17, mc all 2012");
-    drawMyPlot("eff2D_all_passMu17TkMu8_mc","Mu17_TkMu8 after Mu17, mc all 2012");
-    drawMyPlot("eff2D_all_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc all 2012");
+    drawMyPlot("eff2D_runD_passMu17Mu8NoDz_data","Mu17_Mu8 after Mu17, data run D");
+    drawMyPlot("eff2D_runD_passMu17TkMu8NoDz_data","Mu17_TkMu8 after Mu17, data run D");
+    drawMyPlot("eff2D_runD_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, data run D");
+    drawMyPlot("eff2D_all_passMu17Mu8NoDz_mc","Mu17_Mu8 after Mu17, mc all 2012");
+    drawMyPlot("eff2D_all_passMu17TkMu8NoDz_mc","Mu17_TkMu8 after Mu17, mc all 2012");
+    drawMyPlot("eff2D_all_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc all 2012");
     
-    drawMyPlot("eff2D_runA_passMu17Mu8_mc","Mu17_Mu8 after Mu17, mc run A");
-    drawMyPlot("eff2D_runA_passMu17TkMu8_mc","Mu17_TkMu8 after Mu17, mc run A");
-    drawMyPlot("eff2D_runA_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run A");
+    drawMyPlot("eff2D_runA_passMu17Mu8NoDz_mc","Mu17_Mu8 after Mu17, mc run A");
+    drawMyPlot("eff2D_runA_passMu17TkMu8NoDz_mc","Mu17_TkMu8 after Mu17, mc run A");
+    drawMyPlot("eff2D_runA_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run A");
     
-    drawMyPlot("eff2D_runB_passMu17Mu8_mc","Mu17_Mu8 after Mu17, mc run B");
-    drawMyPlot("eff2D_runB_passMu17TkMu8_mc","Mu17_TkMu8 after Mu17, mc run B");
-    drawMyPlot("eff2D_runB_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run B");
+    drawMyPlot("eff2D_runB_passMu17Mu8NoDz_mc","Mu17_Mu8 after Mu17, mc run B");
+    drawMyPlot("eff2D_runB_passMu17TkMu8NoDz_mc","Mu17_TkMu8 after Mu17, mc run B");
+    drawMyPlot("eff2D_runB_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run B");
     
-    drawMyPlot("eff2D_runC_passMu17Mu8_mc","Mu17_Mu8 after Mu17, mc run C");
-    drawMyPlot("eff2D_runC_passMu17TkMu8_mc","Mu17_TkMu8 after Mu17, mc run C");
-    drawMyPlot("eff2D_runC_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run C");
+    drawMyPlot("eff2D_runC_passMu17Mu8NoDz_mc","Mu17_Mu8 after Mu17, mc run C");
+    drawMyPlot("eff2D_runC_passMu17TkMu8NoDz_mc","Mu17_TkMu8 after Mu17, mc run C");
+    drawMyPlot("eff2D_runC_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run C");
     
-    drawMyPlot("eff2D_runD_passMu17Mu8_mc","Mu17_Mu8 after Mu17, mc run D");
-    drawMyPlot("eff2D_runD_passMu17TkMu8_mc","Mu17_TkMu8 after Mu17, mc run D");
-    drawMyPlot("eff2D_runD_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run D");
+    drawMyPlot("eff2D_runD_passMu17Mu8NoDz_mc","Mu17_Mu8 after Mu17, mc run D");
+    drawMyPlot("eff2D_runD_passMu17TkMu8NoDz_mc","Mu17_TkMu8 after Mu17, mc run D");
+    drawMyPlot("eff2D_runD_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8 after Mu17, mc run D");
 
 }

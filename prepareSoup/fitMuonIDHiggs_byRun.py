@@ -157,7 +157,7 @@ if "tag35" in scenario:
 
 print "les fichiers que l'on va utiliser = ", process.TnP_MuonID.InputFileNames
 
-IDS = ["passORdiMu","passMu17Mu8","passMu17TkMu8", "passORMuCocktail"]
+IDS = ["passORdiMuNodZ","passMu17Mu8NoDz","passMu17TkMu8NoDz", "passORMuCocktailNoDz"]
 
 
 ALLBINS = [("ptEta",PT_ETA_BINS_TRIGGER)]
