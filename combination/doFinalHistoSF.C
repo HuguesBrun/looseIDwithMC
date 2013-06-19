@@ -1,7 +1,7 @@
 TFile *myFileOut = new TFile("SFfile.root","RECREATE");
 
 TString runPeriod[5] = {"runA","runB","runC","runD","all"};
-TString theTypeName[3] = {"passORdiMu","passMu17Mu8","passMu17TkMu8"};
+TString theTypeName[4] = {"passORdiMu","passMu17Mu8","passMu17TkMu8","passORMuCocktail"};
 
 doFinalHistoSF(){
     TFile *theFile = new TFile("FinalEfficiencies.root");

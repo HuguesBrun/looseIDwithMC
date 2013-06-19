@@ -2,7 +2,7 @@
 
 recupTheNumbers(){
     TString theRuns[5] = {"runA","runB","runC","runD","all"};
-    TString nomTrigger[3] = {"passMu17Mu8","passMu17TkMu8","passORdiMu"};
+    TString nomTrigger[4] = {"passMu17Mu8","passMu17TkMu8","passORdiMu","passORMuCocktail"};
     
     TFile *myFile = new TFile("TriggerMu17/Mu17refPlot.root");
     for (int i = 0 ; i < 5 ; i++){
@@ -21,7 +21,7 @@ recupTheNumbers(){
     delete myFile;
     
     TFile *myFile = new TFile("prepareSoup/OrSoupPlot.root");
-    for (int j=0 ; j < 2 ; j++){
+    for (int j=0 ; j < 4 ; j++){
         for (int i = 0 ; i < 5 ; i++){
            // cout << "eff2D_"+theRuns[i]+"_"+nomTrigger[j]+"_data" << endl;
             TH2F *data = (TH2F*) myFile->Get("eff2D_"+theRuns[i]+"_"+nomTrigger[j]+"_data");
@@ -40,7 +40,7 @@ recupTheNumbers(){
     delete myFile;
     
     TFile *myFile = new TFile("combination/FinalEfficiencies.root");
-    for (int j=0 ; j < 3 ; j++){
+    for (int j=0 ; j < 4 ; j++){
         for (int i = 0 ; i < 5 ; i++){
             // cout << "eff2D_"+theRuns[i]+"_"+nomTrigger[j]+"_data" << endl;
             TH2F *data = (TH2F*) myFile->Get("effTrigger_"+theRuns[i]+"_"+nomTrigger[j]+"_data");

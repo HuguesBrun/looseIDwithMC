@@ -49,7 +49,9 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
                           passMu17TkMu8 = cms.vstring("passMu17TkMu8","dummy[pass=1,fail=0]"),
                           passORdiMuNodZ = cms.vstring("passORdiMuNodZ","dummy[pass=1,fail=0]"),
                           passMu17Mu8NoDz = cms.vstring("passMu17Mu8NoDz","dummy[pass=1,fail=0]"),
-                          passMu17TkMu8NoDz = cms.vstring("passMu17TkMu8NoDz","dummy[pass=1,fail=0]")
+                          passMu17TkMu8NoDz = cms.vstring("passMu17TkMu8NoDz","dummy[pass=1,fail=0]"),
+                          passORMuCocktail = cms.vstring("passORMuCocktail","dummy[pass=1,fail=0]"),
+                          passORMuCocktailNoDz = cms.vstring("passORMuCocktailNoDz","dummy[pass=1,fail=0]")
     ),
     PDFs = cms.PSet(
         voigtPlusExpo = cms.vstring(
@@ -155,7 +157,7 @@ if "tag35" in scenario:
 
 print "les fichiers que l'on va utiliser = ", process.TnP_MuonID.InputFileNames
 
-IDS = ["passORdiMu","passMu17Mu8","passMu17TkMu8"]
+IDS = ["passORdiMu","passMu17Mu8","passMu17TkMu8", "passORMuCocktail"]
 
 
 ALLBINS = [("ptEta",PT_ETA_BINS_TRIGGER)]

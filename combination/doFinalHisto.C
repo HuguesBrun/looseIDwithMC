@@ -1,6 +1,6 @@
 TFile *myFileOut = new TFile("FinalEfficiencies.root","RECREATE");
 TString runPeriod[5] = {"runA","runB","runC","runD","all"};
-TString theTypeName[3] = {"passORdiMu","passMu17Mu8","passMu17TkMu8"};
+TString theTypeName[4] = {"passORdiMu","passMu17Mu8","passMu17TkMu8","passORMuCocktail"};
 TString theType[2] = {"data","mc"};
 
 doFinalHisto(){
@@ -10,7 +10,7 @@ doFinalHisto(){
     for (int n=0 ; n<2 ; n++){
     for (int k=0; k<5 ; k++){
         TH2F *refPlot = (TH2F*) refFile->Get("eff2D_"+runPeriod[k]+"_"+theType[n]);
-        for (int m=0 ; m<3 ; m++){
+        for (int m=0 ; m<4 ; m++){
         TH2F *soupPlot = (TH2F*) soupFile->Get("eff2D_"+runPeriod[k]+"_"+theTypeName[m]+"_"+theType[n]);
     
         int nBinX = refPlot->GetXaxis()->GetNbins();
