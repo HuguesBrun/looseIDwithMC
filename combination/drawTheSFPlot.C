@@ -45,25 +45,25 @@ drawMyPlot(TString nom, TString title){
 
 drawTheSFPlot(){
     gStyle->SetOptStat(0);
-    drawMyPlot("SF_all_passMu17Mu8","Mu17_Mu8, all 2012");
-    drawMyPlot("SF_all_passMu17TkMu8","Mu17_TkMu8, all 2012");
-    drawMyPlot("SF_all_passORdiMu","Mu17_Mu8 OR Mu17_TkMu8, all 201");
+    drawMyPlot("SF_all_passMu17Mu8NoDz","Mu17_Mu8, all 2012");
+    drawMyPlot("SF_all_passMu17TkMu8NoDz","Mu17_TkMu8, all 2012");
+    drawMyPlot("SF_all_passORdiMuNodZ","Mu17_Mu8 OR Mu17_TkMu8, all 201");
    
-    drawMyPlot("SF_runA_passMu17Mu8","Mu17_Mu8, run A");
-    drawMyPlot("SF_runA_passMu17TkMu8","Mu17_TkMu8, run A");
-    drawMyPlot("SF_runA_passORdiMu","Mu17_Mu8 OR Mu17_TkMu8, run A");
+    drawMyPlot("SF_runA_passMu17Mu8NoDz","Mu17_Mu8, run A");
+    drawMyPlot("SF_runA_passMu17TkMu8NoDz","Mu17_TkMu8, run A");
+    drawMyPlot("SF_runA_passORdiMuNodZ","Mu17_Mu8 OR Mu17_TkMu8, run A");
     
-    drawMyPlot("SF_runB_passMu17Mu8","Mu17_Mu8, run B");
-    drawMyPlot("SF_runB_passMu17TkMu8","Mu17_TkMu8, run B");
-    drawMyPlot("SF_runB_passORdiMu","Mu17_Mu8 OR Mu17_TkMu8, run B");
+    drawMyPlot("SF_runB_passMu17Mu8NoDz","Mu17_Mu8, run B");
+    drawMyPlot("SF_runB_passMu17TkMu8NoDz","Mu17_TkMu8, run B");
+    drawMyPlot("SF_runB_passORdiMuNodZ","Mu17_Mu8 OR Mu17_TkMu8, run B");
     
-    drawMyPlot("SF_runC_passMu17Mu8","Mu17_Mu8, run C");
-    drawMyPlot("SF_runC_passMu17TkMu8","Mu17_TkMu8, run C");
-    drawMyPlot("SF_runC_passORdiMu","Mu17_Mu8 OR Mu17_TkMu8, run C");
+    drawMyPlot("SF_runC_passMu17Mu8NoDz","Mu17_Mu8, run C");
+    drawMyPlot("SF_runC_passMu17TkMu8NoDz","Mu17_TkMu8, run C");
+    drawMyPlot("SF_runC_passORdiMuNodZ","Mu17_Mu8 OR Mu17_TkMu8, run C");
     
-    drawMyPlot("SF_runD_passMu17Mu8","Mu17_Mu8, run D");
-    drawMyPlot("SF_runD_passMu17TkMu8","Mu17_TkMu8, run D");
-    drawMyPlot("SF_runD_passORdiMu","Mu17_Mu8 OR Mu17_TkMu8, run D");
+    drawMyPlot("SF_runD_passMu17Mu8NoDz","Mu17_Mu8, run D");
+    drawMyPlot("SF_runD_passMu17TkMu8NoDz","Mu17_TkMu8, run D");
+    drawMyPlot("SF_runD_passORdiMuNodZ","Mu17_Mu8 OR Mu17_TkMu8, run D");
 
     
   

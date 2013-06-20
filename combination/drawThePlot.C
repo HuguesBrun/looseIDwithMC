@@ -45,45 +45,45 @@ drawMyPlot(TString nom, TString title){
 
 drawThePlot(){
     gStyle->SetOptStat(0);
-    drawMyPlot("effTrigger_all_passMu17Mu8_data","Mu17_Mu8, all 2012, data");
-    drawMyPlot("effTrigger_all_passMu17TkMu8_data","Mu17_TkMu8, all 2012, data");
-    drawMyPlot("effTrigger_all_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8, all 2012, data");
+    drawMyPlot("effTrigger_all_passMu17Mu8NoDz_data","Mu17_Mu8, all 2012, data");
+    drawMyPlot("effTrigger_all_passMu17TkMu8NoDz_data","Mu17_TkMu8, all 2012, data");
+    drawMyPlot("effTrigger_all_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8, all 2012, data");
    
-    drawMyPlot("effTrigger_runA_passMu17Mu8_data","Mu17_Mu8, run A, data");
-    drawMyPlot("effTrigger_runA_passMu17TkMu8_data","Mu17_TkMu8, run A, data");
-    drawMyPlot("effTrigger_runA_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8, run A, data");
+    drawMyPlot("effTrigger_runA_passMu17Mu8NoDz_data","Mu17_Mu8, run A, data");
+    drawMyPlot("effTrigger_runA_passMu17TkMu8NoDz_data","Mu17_TkMu8, run A, data");
+    drawMyPlot("effTrigger_runA_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8, run A, data");
     
-    drawMyPlot("effTrigger_runB_passMu17Mu8_data","Mu17_Mu8, run B, data");
-    drawMyPlot("effTrigger_runB_passMu17TkMu8_data","Mu17_TkMu8, run B, data");
-    drawMyPlot("effTrigger_runB_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8, run B, data");
+    drawMyPlot("effTrigger_runB_passMu17Mu8NoDz_data","Mu17_Mu8, run B, data");
+    drawMyPlot("effTrigger_runB_passMu17TkMu8NoDz_data","Mu17_TkMu8, run B, data");
+    drawMyPlot("effTrigger_runB_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8, run B, data");
     
-    drawMyPlot("effTrigger_runC_passMu17Mu8_data","Mu17_Mu8, run C, data");
-    drawMyPlot("effTrigger_runC_passMu17TkMu8_data","Mu17_TkMu8, run C, data");
-    drawMyPlot("effTrigger_runC_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8, run C, data");
+    drawMyPlot("effTrigger_runC_passMu17Mu8NoDz_data","Mu17_Mu8, run C, data");
+    drawMyPlot("effTrigger_runC_passMu17TkMu8NoDz_data","Mu17_TkMu8, run C, data");
+    drawMyPlot("effTrigger_runC_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8, run C, data");
     
-    drawMyPlot("effTrigger_runD_passMu17Mu8_data","Mu17_Mu8, run D, data");
-    drawMyPlot("effTrigger_runD_passMu17TkMu8_data","Mu17_TkMu8, run D, data");
-    drawMyPlot("effTrigger_runD_passORdiMu_data","Mu17_Mu8 OR Mu17_TkMu8, run D, data");
+    drawMyPlot("effTrigger_runD_passMu17Mu8NoDz_data","Mu17_Mu8, run D, data");
+    drawMyPlot("effTrigger_runD_passMu17TkMu8NoDz_data","Mu17_TkMu8, run D, data");
+    drawMyPlot("effTrigger_runD_passORdiMuNodZ_data","Mu17_Mu8 OR Mu17_TkMu8, run D, data");
 
     
     
-    drawMyPlot("effTrigger_all_passMu17Mu8_mc","Mu17_Mu8, all 2012, mc");
-    drawMyPlot("effTrigger_all_passMu17TkMu8_mc","Mu17_TkMu8, all 2012, mc");
-    drawMyPlot("effTrigger_all_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8, all 2012, mc");
+    drawMyPlot("effTrigger_all_passMu17Mu8NoDz_mc","Mu17_Mu8, all 2012, mc");
+    drawMyPlot("effTrigger_all_passMu17TkMu8NoDz_mc","Mu17_TkMu8, all 2012, mc");
+    drawMyPlot("effTrigger_all_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8, all 2012, mc");
     
-    drawMyPlot("effTrigger_runA_passMu17Mu8_mc","Mu17_Mu8, run A, mc");
-    drawMyPlot("effTrigger_runA_passMu17TkMu8_mc","Mu17_TkMu8, run A, mc");
-    drawMyPlot("effTrigger_runA_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8, run A, mc");
+    drawMyPlot("effTrigger_runA_passMu17Mu8NoDz_mc","Mu17_Mu8, run A, mc");
+    drawMyPlot("effTrigger_runA_passMu17TkMu8NoDz_mc","Mu17_TkMu8, run A, mc");
+    drawMyPlot("effTrigger_runA_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8, run A, mc");
     
-    drawMyPlot("effTrigger_runB_passMu17Mu8_mc","Mu17_Mu8, run B, mc");
-    drawMyPlot("effTrigger_runB_passMu17TkMu8_mc","Mu17_TkMu8, run B, mc");
-    drawMyPlot("effTrigger_runB_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8, run B, mc");
+    drawMyPlot("effTrigger_runB_passMu17Mu8NoDz_mc","Mu17_Mu8, run B, mc");
+    drawMyPlot("effTrigger_runB_passMu17TkMu8NoDz_mc","Mu17_TkMu8, run B, mc");
+    drawMyPlot("effTrigger_runB_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8, run B, mc");
     
-    drawMyPlot("effTrigger_runC_passMu17Mu8_mc","Mu17_Mu8, run C, mc");
-    drawMyPlot("effTrigger_runC_passMu17TkMu8_mc","Mu17_TkMu8, run C, mc");
-    drawMyPlot("effTrigger_runC_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8, run C, mc");
+    drawMyPlot("effTrigger_runC_passMu17Mu8NoDz_mc","Mu17_Mu8, run C, mc");
+    drawMyPlot("effTrigger_runC_passMu17TkMu8NoDz_mc","Mu17_TkMu8, run C, mc");
+    drawMyPlot("effTrigger_runC_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8, run C, mc");
     
-    drawMyPlot("effTrigger_runD_passMu17Mu8_mc","Mu17_Mu8, run D, mc");
-    drawMyPlot("effTrigger_runD_passMu17TkMu8_mc","Mu17_TkMu8, run D, mc");
-    drawMyPlot("effTrigger_runD_passORdiMu_mc","Mu17_Mu8 OR Mu17_TkMu8, run D, mc");
+    drawMyPlot("effTrigger_runD_passMu17Mu8NoDz_mc","Mu17_Mu8, run D, mc");
+    drawMyPlot("effTrigger_runD_passMu17TkMu8NoDz_mc","Mu17_TkMu8, run D, mc");
+    drawMyPlot("effTrigger_runD_passORdiMuNodZ_mc","Mu17_Mu8 OR Mu17_TkMu8, run D, mc");
 }

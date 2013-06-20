@@ -2,7 +2,7 @@
 
 recupTheNumbers(){
     TString theRuns[5] = {"runA","runB","runC","runD","all"};
-    TString nomTrigger[4] = {"passMu17Mu8","passMu17TkMu8","passORdiMu","passORMuCocktail"};
+    TString nomTrigger[4] = {"passMu17Mu8NoDz","passMu17TkMu8NoDz","passORdiMuNodZ","passORMuCocktailNoDz"};
     
     TFile *myFile = new TFile("TriggerMu17/Mu17refPlot.root");
     for (int i = 0 ; i < 5 ; i++){

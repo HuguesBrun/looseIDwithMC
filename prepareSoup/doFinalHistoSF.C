@@ -1,7 +1,7 @@
 TFile *myFileOut = new TFile("SFfile.root","RECREATE");
 
 TString runPeriod[5] = {"runA","runB","runC","runD","all"};
-TString theTypeName[4] = {"passORdiMu","passMu17Mu8","passMu17TkMu8","passORMuCocktail"};
+TString theTypeName[4] = {"passORdiMuNodZ","passMu17Mu8NoDz","passMu17TkMu8NoDz","passORMuCocktailNoDz"};
 
 doFinalHistoSF(){
     TFile *theFile = new TFile("OrSoupPlot.root");
