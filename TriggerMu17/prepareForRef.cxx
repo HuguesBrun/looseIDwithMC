@@ -99,7 +99,7 @@ void prepareForRef() {
         passLoose = ((Glb||TM)&&PF);
         //if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
         if (!(tag_Tight2012)) continue;
-        if (!((Glb||TM)&&PF)) continue;
+        if (!(Tight2012)) continue;
         if (!((tag_Mu17))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
    /*    passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8));

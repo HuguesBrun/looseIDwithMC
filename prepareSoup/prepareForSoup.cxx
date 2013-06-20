@@ -102,10 +102,10 @@ void prepareForSoup() {
             
         }
         //if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
-        //if (!(Tight2012&&tag_Tight2012)) continue;
-        bool passLoose = ((Glb||TM)&&PF);
+        if (!(Tight2012&&tag_Tight2012)) continue;
+        //bool passLoose = ((Glb||TM)&&PF);
 
-        if (!(passLoose)) continue;
+        //if (!(passLoose)) continue;
         if (!((Mu17)||(tag_Mu17))) continue;
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
         passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8leg)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8leg));

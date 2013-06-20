@@ -14,8 +14,8 @@ void prepareForRefMC() {
     TTree *tIn  = (TTree *) gFile->Get("tpTree/fitter_tree");
     Float_t pt, abseta, pair_probeMultiplicity, tag_eta, tag_nVertices, mass;
     Int_t Glb, TM, PF;
-	Int_t Tight2012, tag_Tight2012, tag_Mu8, Mu8, DoubleMu17Mu8_Mu17leg,  DoubleMu17Mu8_Mu8leg, DoubleMu17Mu8_Mu17, DoubleMu17Mu8_Mu8, DoubleMu17TkMu8_Mu17, DoubleMu17TkMu8_TkMu8, DoubleMu17TkMu8_Mu17leg, DoubleMu17TkMu8_TkMu8leg;
-    Int_t tag_DoubleMu17Mu8_Mu17leg,  tag_DoubleMu17Mu8_Mu8leg, tag_DoubleMu17Mu8_Mu17, tag_DoubleMu17Mu8_Mu8, tag_DoubleMu17TkMu8_Mu17, tag_DoubleMu17TkMu8_TkMu8, tag_DoubleMu17TkMu8_Mu17leg, tag_DoubleMu17TkMu8_TkMu8leg;
+	Int_t Tight2012, tag_Tight2012, tag_Mu8, Mu8, DoubleMu17Mu8_Mu17leg,  DoubleMu17Mu8_Mu8leg, DoubleMu17Mu8_Mu17, DoubleMu17Mu8_Mu8, DoubleMu17TkMu8_Mu17, DoubleMu17TkMu8_TkMu8, DoubleMu17TkMu8_Mu17leg, DoubleMu17TkMu8_TkMu8leg, Mu17;
+    Int_t tag_DoubleMu17Mu8_Mu17leg,  tag_DoubleMu17Mu8_Mu8leg, tag_DoubleMu17Mu8_Mu17, tag_DoubleMu17Mu8_Mu8, tag_DoubleMu17TkMu8_Mu17, tag_DoubleMu17TkMu8_TkMu8, tag_DoubleMu17TkMu8_Mu17leg, tag_DoubleMu17TkMu8_TkMu8leg, tag_Mu17;
     tIn->SetBranchAddress("pt", &pt);
     tIn->SetBranchAddress("abseta", &abseta);
     tIn->SetBranchAddress("tag_eta", &tag_eta);
@@ -24,6 +24,8 @@ void prepareForRefMC() {
     tIn->SetBranchAddress("Tight2012", &Tight2012);
     tIn->SetBranchAddress("tag_Tight2012", &tag_Tight2012);
     tIn->SetBranchAddress("tag_Mu8", &tag_Mu8);
+    tIn->SetBranchAddress("tag_Mu17", &tag_Mu17);
+    tIn->SetBranchAddress("Mu17", &Mu17);
     tIn->SetBranchAddress("Mu8", &Mu8);
     tIn->SetBranchAddress("Glb", &Glb);
     tIn->SetBranchAddress("TM", &TM);
@@ -143,10 +145,9 @@ void prepareForRefMC() {
         passLoose = ((Glb||TM)&&PF);
 
         //if (!((pair_probeMultiplicity>0)&&(pair_probeMultiplicity<2.0))) continue;
-       // if (!(tag_Tight2012)) continue;
-        //if (!(Tight2012)) continue;
-        if (!((Glb||TM)&&PF)) continue;
-        if (!((tag_Mu8))) continue;
+        if (!(tag_Tight2012)) continue;
+        if (!(Tight2012)) continue;
+        if (!((tag_Mu17))) continue;
 
         weight = weights[int(tag_nVertices)];
         weight_runA = weights_runA[int(tag_nVertices)];
