@@ -10,7 +10,7 @@
 void prepareForSoup() {
 	using namespace std;
     TTree *tIn  = (TTree *) gFile->Get("tpTree/fitter_tree");
-    Float_t pt, abseta, pair_probeMultiplicity, tag_eta,mass;
+    Float_t pt, abseta, pair_probeMultiplicity, tag_eta, tag_mu17ps,mass;
     Int_t Glb, TM, PF;
 	Int_t Tight2012, tag_Tight2012, tag_Mu17, Mu17, DoubleMu17Mu8_Mu17leg,  DoubleMu17Mu8_Mu8leg, DoubleMu17Mu8_Mu17, DoubleMu17Mu8_Mu8, DoubleMu17TkMu8_Mu17, DoubleMu17TkMu8_TkMu8, DoubleMu17TkMu8_Mu17leg, DoubleMu17TkMu8_TkMu8leg;
     Int_t tag_DoubleMu17Mu8_Mu17leg,  tag_DoubleMu17Mu8_Mu8leg, tag_DoubleMu17Mu8_Mu17, tag_DoubleMu17Mu8_Mu8, tag_DoubleMu17TkMu8_Mu17, tag_DoubleMu17TkMu8_TkMu8, tag_DoubleMu17TkMu8_Mu17leg, tag_DoubleMu17TkMu8_TkMu8leg;
@@ -42,15 +42,16 @@ void prepareForSoup() {
     //tIn->SetBranchAddress("tag_DoubleMu17TkMu8_TkMu8", &tag_DoubleMu17TkMu8_TkMu8);
     tIn->SetBranchAddress("tag_DoubleMu17TkMu8_Mu17leg", &tag_DoubleMu17TkMu8_Mu17leg);
     tIn->SetBranchAddress("tag_DoubleMu17TkMu8_TkMu8leg", &tag_DoubleMu17TkMu8_TkMu8leg);
+    tIn->SetBranchAddress("tag_mu17ps", &tag_mu17ps);
 	
 
-	
+
 
     TFile *fOut = new TFile("/tmp/hbrun/tnpZ_withMuIDTop.root", "RECREATE");
     //TFile *fOut = new TFile("/afs/cern.ch/work/h/hbrun/pogTnPr7/TnP_Data_"+NameFile+".root", "RECREATE");
     fOut->mkdir("tpTree")->cd();
     TTree *tOut = tIn->CloneTree(0);
-    Float_t tag_abseta;
+    Float_t tag_abseta, weightPS;
     Int_t passORdiMu, passORdiMuNodZ, passMu17Mu8, passMu17Mu8NoDz, passMu17TkMu8, passMu17TkMu8NoDz;
 //    tOut->Branch("pt", &pt, "pt/F");
    tOut->Branch("tag_abseta", &tag_abseta, "tag_abseta/F");
@@ -60,6 +61,7 @@ void prepareForSoup() {
     tOut->Branch("passMu17Mu8NoDz", &passMu17Mu8NoDz, "passMu17Mu8NoDz/I");
     tOut->Branch("passMu17TkMu8", &passMu17TkMu8, "passMu17TkMu8/I");
     tOut->Branch("passMu17TkMu8NoDz", &passMu17TkMu8NoDz, "passMu17TkMu8NoDz/I");
+    tOut->Branch("weightPS", &weightPS, "weightPS/F");
 
 	
   
@@ -103,6 +105,7 @@ void prepareForSoup() {
 
         if (!(passLoose)) continue;
         if (!((Mu17)||(tag_Mu17))) continue;
+        weightPS = tag_mu17ps/900; //weight event to take in account the prescale ! 
       //  passORdiMu = ((DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8)||(DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8));
         passMu17Mu8 = ((DoubleMu17Mu8_Mu17&&tag_DoubleMu17Mu8_Mu8leg)||(tag_DoubleMu17Mu8_Mu17&&DoubleMu17Mu8_Mu8leg));
         passMu17TkMu8 = ((DoubleMu17TkMu8_Mu17&&tag_DoubleMu17TkMu8_TkMu8leg)||(tag_DoubleMu17TkMu8_Mu17&&DoubleMu17TkMu8_TkMu8leg));
