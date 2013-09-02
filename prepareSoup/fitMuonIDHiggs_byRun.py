@@ -39,6 +39,7 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
                          weight_runB = cms.vstring("weight_runB", "0.0", "30.0", ""),
                          weight_runC = cms.vstring("weight_runC", "0.0", "30.0", ""),
                          weight_runD = cms.vstring("weight_runD", "0.0", "30.0", ""),
+                         weightPS = cms.vstring("weightPS", "0.0", "2.0", ""),
 
 
     ),
@@ -135,6 +136,8 @@ if "mc" in scenario:
 
 
 if "data" in scenario:
+    process.TnP_MuonID.WeightVariable = cms.string("weightPS")
+    weightName="weightPS"
     if   "v1" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX+"tnpZ_HWWid2012.root" ]
     elif "v2" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX+"tnpZ_2011A_v2_GOLDEN.root" ]
     # elif "huguesTest" in scenario: process.TnP_MuonID.InputFileNames = [ PREFIX + "TnP_Data_runA.root",PREFIX + "TnP_Data_runB.root",PREFIX + "TnP_Data_runCv1.root",PREFIX + "TnP_Data_runCv2_forTrigger.root",PREFIX + "TnP_Data_runDp1.root",PREFIX + "TnP_Data_runDp2.root"]
